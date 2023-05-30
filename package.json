@@ -5,11 +5,15 @@
   "main": "src/server.ts",
   "author": "Ibrahim kholil",
   "license": "MIT",
+  "lint-staged": {
+    "src/**/*.ts": "yarn list-prettier"
+  },
   "scripts": {
     "start": "ts-node-dev --respawn --transpile-only src/server.ts",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
     "lint:fix": "eslint --fix",
-    "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+    "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "lint-prettier": "yarn lint:check && yarn prettier:check"
   },
   "devDependencies": {
     "@types/cors": "^2.8.13",
